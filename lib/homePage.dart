@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class homePage extends StatelessWidget {
   homePage({super.key});
 
   final user = FirebaseAuth.instance.currentUser;
 
-  void singnUserOut(){
+  void singnUserOut() async {
     FirebaseAuth.instance.signOut();
+    GoogleSignIn().disconnect();
   }
 
   @override
